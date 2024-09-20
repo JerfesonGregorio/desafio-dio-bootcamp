@@ -10,6 +10,13 @@ public class UsoSwitch {
     * Plano premium --> 100 minutos de ligação + Whatsapp + 5Gb de internet
     * */
 
+    static String plano = "";
+
+    static private void captarEntrada() {
+        Scanner sc = new Scanner(System.in);
+        plano = sc.next();
+    }
+
     public static void main(String[] args) {
 
         System.out.println("Escolha o seu plano\n" +
@@ -17,10 +24,8 @@ public class UsoSwitch {
                 "[2] - Medium\n" +
                 "[3] - Premium\n" +
                 "[4] - Sair");
-
-        Scanner sc = new Scanner(System.in);
-        String plano = sc.next();
-
+        captarEntrada();
+        
         while(!plano.equals("4")) {
 
             switch (plano) {
@@ -40,7 +45,7 @@ public class UsoSwitch {
                 }
             }
 
-        plano = sc.next();
+            captarEntrada();
         }
 
         System.out.println("Sistema encerrado!");
