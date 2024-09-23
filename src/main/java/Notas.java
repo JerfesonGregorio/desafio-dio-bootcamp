@@ -6,14 +6,23 @@ public class Notas {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Digite sua nota!");
-        int nota = Integer.parseInt(sc.nextLine());
+        String[] alunos = {"João", "Maria", "Zé", "Luiz"};
 
-        String situacao = (nota >= 7) ? "Aprovado"
-                : (nota >= 4) ? "Recuperação"
-                : "Reprovado";
+        int media = calcularMedia(alunos, sc);
 
-        System.out.println(situacao);
+        System.out.printf("Média da turma é %d", media);
+
     }
 
+    public static int calcularMedia(String[] alunos, Scanner sc) {
+
+        int soma = 0;
+        for(String aluno : alunos) {
+            System.out.printf("Nota do aluno %s: ", aluno);
+            int nota = sc.nextInt();
+            soma += nota;
+        }
+
+        return soma/ alunos.length;
+    }
 }
